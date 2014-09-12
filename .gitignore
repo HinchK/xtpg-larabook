@@ -6,5 +6,9 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+/.bin
+.idea
+.vagrant
+
 
 tests/_output/*
