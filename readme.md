@@ -1,3 +1,7 @@
+## New Project Skunkworks: Lets Learn Laravel!
+
+Loving Laracasts:Larabook, playing with functionalities and cool application design principles (commandbus, TDD with codecept) whilst pondering what tewdew about my next project 'xtpg'
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
