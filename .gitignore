@@ -8,7 +8,7 @@ composer.lock
 .DS_Store
 Thumbs.db
 /.bin
-.idea
+/.idea
 .vagrant
 
 
