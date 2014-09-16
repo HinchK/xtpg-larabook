@@ -5,9 +5,16 @@ use Larabook\Users\User;
 
 class StatusRepository {
 
-    public function getAllForUser($userId)
+    /**
+     * Get all Statuses associated witha a user
+     *
+     * @param $userId
+     * @return mixed
+     */
+
+    public function getAllForUser(User $user)
     {
-        return User::find($userId)->statuses()->get();
+        return $user->statuses()->get();
     }
 
     /**
