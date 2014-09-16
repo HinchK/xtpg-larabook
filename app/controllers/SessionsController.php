@@ -46,12 +46,15 @@ class SessionsController extends \BaseController {
         // if invalid, go back
 
         //if valid, sign in
-        if (Auth::attempt($formData))
+        if ( ! Auth::attempt($formData))
         {
             //redirect to status
-            Flash::message('welcome back!');
-            return Redirect::intended('statuses');
+            Flash::message('Invalid Credentials');
+            return Redirect::back()->withInput();
         }
+
+        Flash::message('Welcome back!');
+        return Redirect::to('statuses');
 
 	}
 

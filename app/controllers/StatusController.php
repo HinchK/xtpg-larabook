@@ -1,15 +1,40 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Larabook\Core\CommandBus;
+use Larabook\Statuses\PublishStatusCommand;
+use Larabook\Statuses\StatusRepository;
+use Laracasts\Flash\Flash;
+
 class StatusController extends \BaseController {
 
-	/**
+    use CommandBus;
+
+    /**
+     * @var
+     */
+    protected $statusRepository;
+
+
+    /**
+     * @param StatusRepository $statusRepository
+     */
+    function __construct(StatusRepository $statusRepository)
+    {
+        $this->statusRepository = $statusRepository;
+    }
+
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		return View::make('statuses.index');
+        $statuses = $this->statusRepository->getAllForUser(Auth::id());
+
+		return View::make('statuses.index',compact('statuses'));
 	}
 
 
@@ -25,13 +50,23 @@ class StatusController extends \BaseController {
 
 
 	/**
-	 * Store a newly created resource in storage.
+	 * save a new status
 	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		//
+        // could in-line, but keeping extracted to remind me
+        // of commandbus usage
+
+        $this->execute(
+            new PublishStatusCommand(Input::get('body'), Auth::user()->id)
+        );
+
+        Flash::message('Your status has been updated!');
+
+        return Redirect::refresh();
+
 	}
 
 
