@@ -36,3 +36,11 @@ body {
   background: #f5f5f5;
   padding: 1em;
   margin-bottom: 2em; }
+
+.users {
+  margin-bottom: 3em; }
+
+.user-block {
+  text-align: center; }
+  .user-block .avatar {
+    margin: auto; }
