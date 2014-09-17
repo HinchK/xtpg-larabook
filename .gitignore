@@ -1,7 +1,7 @@
 /bootstrap/compiled.php
 /vendor
 /node_modules
-
+.idea
 composer.phar
 composer.lock
 
@@ -11,7 +11,8 @@ composer.lock
 Thumbs.db
 
 /.bin
-/.idea
 .vagrant
 
 tests/_output/*
+
+_ide_helper.php

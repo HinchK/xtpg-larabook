@@ -1,31 +1,29 @@
 @extends('layouts.default')
 
 @section('content')
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="status-post">
+                {{ Form::open() }}
 
-    <h1>Post a Status</h1>
+                    <div class="form-group">
+                        {{-- Form::label('body', 'Status:') --}}
+                        {{ Form::textarea('body',null, ['class' => 'form-control', 'rows' => 3, 'placeholder' => "What's going on?"]) }}
 
-    {{ Form::open() }}
+                    </div>
 
-        <div class="form-group">
-            {{ Form::label('body', 'Status:') }}
-            {{ Form::textarea('body',null, ['class' => 'form-control']) }}
+                    <div class="form-group status-post-submit">
+                        {{ Form::submit('Post Status',['btn btn-primary btn-xs']) }}
+                    </div>
 
+                {{ Form::close() }}
+            </div>
+
+            @foreach($statuses as $status)
+
+                @include('statuses.partials.status')
+
+            @endforeach
         </div>
-
-        <div class="form-group">
-            {{ Form::submit('Post Status',['btn btn-primary']) }}
-        </div>
-
-    {{ Form::close() }}
-
-    <h2>Statuses</h2>
-
-    @foreach($statuses as $status)
-
-        <article>
-            {{ $status->body }}
-        </article>
-
-    @endforeach
-
+    </div>
 @stop
