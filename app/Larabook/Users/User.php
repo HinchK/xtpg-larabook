@@ -7,11 +7,17 @@ use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use Laracasts\Commander\Events\EventGenerator;
 use Eloquent, Hash;
+use Laracasts\Presenter\PresentableTrait;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait, EventGenerator;
+	use UserTrait, RemindableTrait, EventGenerator, PresentableTrait;
 
+    /**
+     * Which fields may be mass assigned?
+     *
+     * @var array
+     */
     protected $fillable = ['username','email','password'];
 
 	/**
@@ -20,6 +26,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+
+
+    /**
+     * Path to the presenter for a user
+     *
+     * @var string
+     */
+    protected $presenter = 'Larabook\Users\UserPresenter';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
