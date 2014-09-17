@@ -12,10 +12,6 @@ use Laracasts\Flash\Flash;
 class RegistrationController extends \BaseController {
 
     use Commandbus;
-    /*
-     * @var CommandBus
-     */
-    private $commandBus;
 
     /*
      * @var RegistrationForm

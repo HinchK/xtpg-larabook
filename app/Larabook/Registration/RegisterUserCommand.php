@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Andrew
- * Date: 9/11/2014
- * Time: 9:13 AM
- */
-
-namespace Larabook\Registration;
+<?php namespace Larabook\Registration;
 
 
 class RegisterUserCommand {

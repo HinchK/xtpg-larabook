@@ -1,12 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Andrew
- * Date: 9/11/2014
- * Time: 9:21 AM
- */
-
-namespace Larabook\Registration;
+<?php namespace Larabook\Registration;
 
 use Laracasts\Commander\CommandHandler;
 use Larabook\Users\UserRepository;
