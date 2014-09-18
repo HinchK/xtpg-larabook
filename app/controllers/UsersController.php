@@ -4,8 +4,14 @@ use Larabook\Users\UserRepository;
 
 class UsersController extends \BaseController {
 
+    /**
+     * @var UserRepository
+     */
     protected $userRepository;
 
+    /**
+     * @param UserRepository $userRepository
+     */
     function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
@@ -22,5 +28,17 @@ class UsersController extends \BaseController {
 
         return View::make('users.index')->withUsers($users);
 	}
+
+    /**
+     * Show the requested User's profiles, given a username
+     * @param $username
+     * @return mixed
+     */
+    public function show($username)
+    {
+        $user = $this->userRepository->findByUsername($username);
+
+        return View::make('users.show')->withUser($user);
+    }
 
 }

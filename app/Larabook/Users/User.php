@@ -6,8 +6,8 @@ use Larabook\Registration\Events\UserRegistered;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use Laracasts\Commander\Events\EventGenerator;
-use Eloquent, Hash;
 use Laracasts\Presenter\PresentableTrait;
+use Eloquent, Hash;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
@@ -59,7 +59,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function statuses()
     {
-        return $this->hasMany('Larabook\Statuses\Status');
+        return $this->hasMany('Larabook\Statuses\Status')->orderBy('id','DESC');
     }
 
 
@@ -78,5 +78,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $user;
     }
 
+    /** Check if $user passed to function is the currently logged in user
+     * @param User $user
+     * @return bool
+     */
+    public function is(User $user)
+    {
+        return $this->username == $user->username;
+    }
 
 }
