@@ -1,6 +1,5 @@
 <?php
 
-use Larabook\Core\CommandBus;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
@@ -10,8 +9,6 @@ use Laracasts\Flash\Flash;
 
 
 class RegistrationController extends \BaseController {
-
-    use Commandbus;
 
     /*
      * @var RegistrationForm
@@ -49,15 +46,11 @@ class RegistrationController extends \BaseController {
     {
         $this->registrationForm->validate(Input::all());
 
-        extract(Input::only('username','email','password'));
-
-        $user = $this->execute(
-            new RegisterUserCommand($username, $email, $password)
-        );
+        $user = $this->execute(RegisterUserCommand::class);
 
         Auth::login($user);
 
-        Flash::overlay('Glad to have you as a new Larabook member!');
+        Flash::overlay('WELCOME\n\nGlad to have you as a new Larabook member!');
 
         return Redirect::home();
     }

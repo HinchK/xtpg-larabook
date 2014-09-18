@@ -16,7 +16,7 @@ $I->click('Sign Up');
 $I->seeCurrentUrlEquals('');
 $I->see('Welcome to larabook-tpg!');
 $I->seeRecord('users',[
-   'username' => 'studentuser',
+    'username' => 'studentuser',
     'email' => 'studentuser@example.com'
 ]);
 

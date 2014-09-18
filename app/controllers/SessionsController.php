@@ -45,7 +45,6 @@ class SessionsController extends \BaseController {
 
         // if invalid, go back
 
-        //if valid, sign in
         if ( ! Auth::attempt($formData))
         {
             //redirect to status
@@ -53,6 +52,7 @@ class SessionsController extends \BaseController {
             return Redirect::back()->withInput();
         }
 
+        // we valid
         Flash::message('Welcome back!');
         return Redirect::to('statuses');
 
