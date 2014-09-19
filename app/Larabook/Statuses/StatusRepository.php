@@ -14,7 +14,7 @@ class StatusRepository {
 
     public function getAllForUser(User $user)
     {
-        return $user->statuses()->get();
+        return $user->statuses()->with('user')->latest()->get();  //orderBy('created_at', 'desc')
     }
 
     /**
