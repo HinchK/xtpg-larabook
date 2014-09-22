@@ -38,4 +38,39 @@ class UserRepository {
 
     }
 
+    /**
+     * Find a user by ID
+     * @param $id
+     * @return \Illuminate\Support\Collection|static
+     */
+    public function findById($id)
+    {
+
+        return User::findOrFail($id);
+    }
+
+    /**
+     * Follow a User
+     *
+     * @param $userIdToFollow
+     * @param User $user
+     * @return mixed
+     */
+    public function follow($userIdToFollow, User $user)
+    {
+        return $user->followedUsers()->attach($userIdToFollow);
+    }
+
+    /**
+     * Unfollow a User
+     *
+     * @param $userIdToFollow
+     * @param User $user
+     * @return mixed
+     */
+    public function unfollow($userIdToUnfollow, User $user)
+    {
+        return $user->followedUsers()->detach($userIdToUnfollow);
+    }
+
 }

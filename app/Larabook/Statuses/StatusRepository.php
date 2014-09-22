@@ -32,4 +32,17 @@ class StatusRepository {
 
     }
 
+    /**
+     * Get the feed for a user
+     * @param User $user
+     * @return array|\Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getFeedForUser(User $user)
+    {
+        $userIds = $user->followedUsers()->lists('followed_id');
+        $userIds[] = $user->id;
+
+        return Status::whereIn('user_id', $userIds)->latest()->get();
+    }
+
 } 
