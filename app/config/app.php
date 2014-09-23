@@ -121,11 +121,13 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+//External/Developed Service Providers
         'Way\Generators\GeneratorsServiceProvider',
         'Laracasts\Commander\CommanderServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Laracasts\Validation\ValidationServiceProvider',
-        'Laracasts\Flash\FlashServiceProvider'
+        'Laracasts\Flash\FlashServiceProvider',
+        'Larabook\Providers\EventServiceProvider'
 	),
 
 	/*

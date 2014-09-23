@@ -1,6 +1,6 @@
 <?php
 
-//Event::listen('Larabook.Registration.Events.UserRegistered', function($event)
+//Event::listen('Larabook.Registration.Events.UserRegistered', function()
 //{
 //    dd('send notification email');
 //});
