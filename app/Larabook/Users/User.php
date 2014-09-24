@@ -11,7 +11,7 @@ use Eloquent, Hash;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait, EventGenerator, PresentableTrait;
+	use UserTrait, RemindableTrait, EventGenerator, PresentableTrait, FollowableTrait;
 
     /**
      * Which fields may be mass assigned?
@@ -59,7 +59,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function statuses()
     {
-        return $this->hasMany('Larabook\Statuses\Status')->orderBy('id','DESC');
+        return $this->hasMany('Larabook\Statuses\Status')->latest();
     }
 
 
@@ -87,6 +87,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         if (is_null($user)) return false;
 
         return $this->username == $user->username;
+    }
+
+    /**
+     * Comments
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('Larabook\Statuses\Comment');
     }
 
 }

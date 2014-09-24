@@ -47,4 +47,12 @@ class Status extends \Eloquent{
         return $this->belongsTo('Larabook\Users\User');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('Larabook\Statuses\Comment');
+    }
+
 } 

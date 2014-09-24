@@ -1,6 +1,6 @@
 <?php
 
-//Event::listen('Larabook.Registration.Events.UserRegistered', function($event)
+//Event::listen('Larabook.Registration.Events.UserRegistered', function()
 //{
 //    dd('send notification email');
 //});
@@ -56,6 +56,11 @@ Route::post('statuses',[
     'uses' => 'StatusesController@store'
 ]);
 
+Route::post('statuses/{id}/comments', [
+    'as' => 'comment_path',
+    'uses' => 'CommentsController@store'
+]);
+
 /**
  * Users
  */
@@ -69,3 +74,21 @@ Route::get('@{username}',[
     'as' => 'profile_path',
     'uses' => 'UsersController@show'
 ]);
+
+/**
+ * Follows
+ */
+
+Route::post('follows',[
+    'as' => 'follows_path',
+    'uses' => 'FollowsController@store'
+]);
+
+Route::delete('follows/{id}', [
+    'as' => 'follow_path',
+    'uses' => 'FollowsController@destroy'
+]);
+/**
+ * Password resets
+ */
+Route::controller('password', 'RemindersController');
