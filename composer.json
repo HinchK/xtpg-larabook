@@ -15,7 +15,8 @@
         "codeception/codeception": "~2.0",
         "laracasts/testdummy": "~1.0",
         "barryvdh/laravel-ide-helper": "v1.11.3",
-        "fzaninotto/faker": "1.4.*"
+        "fzaninotto/faker": "1.4.*",
+		"google/apiclient": "1.0.*@beta"
     },
 	"autoload": {
 		"classmap": [
