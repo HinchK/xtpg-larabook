@@ -5,6 +5,9 @@
 //    dd('send notification email');
 //});
 
+use Larabook\Roles\Role;
+use Larabook\Users\User;
+
 Route::get('/', [
     'as' => 'home',
     'uses' => 'PagesController@home'
@@ -30,11 +33,22 @@ Route::get('login',[
 
 ]);
 
+Route::get('googlelogin', function()
+{
+    //$provider->authorize();
+});
+
 Route::post('login',[
     'as' => 'login_path',
     'uses' => 'SessionsController@store'
-
 ]);
+
+/**
+ * OAuth2 Google Login Routes
+ */
+Route::get('authorize', 'HomeController@authorize');
+
+Route::get('google/login', 'HomeController@login');
 
 Route::get('logout',[
     'as' => 'logout_path',
@@ -74,6 +88,17 @@ Route::get('@{username}',[
     'as' => 'profile_path',
     'uses' => 'UsersController@show'
 ]);
+
+/**
+ * Roles lesson
+ * https://laracasts.com/lessons/users-and-roles
+ */
+
+//Route::get('roles', function()
+//{
+//   // User::first()->roles()->attach(1);
+//    return User::first()->roles;
+//});
 
 /**
  * Follows

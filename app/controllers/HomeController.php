@@ -1,23 +1,35 @@
 <?php
 
+use Illuminate\Support\Facades\Input;
+use Larabook\Accounts\Providers\Contracts\Provider;
+
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
+    protected $provider;
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+    function __construct(Provider $provider)
+    {
+        $this->provider = $provider;
+    }
+
+    /**
+     * @internal param $provider
+     * @return mixed
+     */
+    public function authorize()
+    {
+        return $this->provider->authorize();
+    }
+
+    /**
+     *
+     */
+    public function login()
+    {
+        $user = $this->provider->user(Input::get('code'));
+        dd($user);
+        Auth::login($user);
+        return Redirect::home();
+    }
 
 }
