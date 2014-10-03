@@ -64,9 +64,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 
     /**
+     * Registers a user
      * @param $username
      * @param $email
      * @param $password
+     * @return static
      */
     public static function register($username, $email, $password)
     {
@@ -96,6 +98,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
     public function comments()
     {
         return $this->hasMany('Larabook\Statuses\Comment');
+    }
+
+    /** Roles
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('Larabook\Roles\Role')->withTimestamps();
     }
 
 }

@@ -127,7 +127,8 @@ return array(
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Laracasts\Validation\ValidationServiceProvider',
         'Laracasts\Flash\FlashServiceProvider',
-        'Larabook\Providers\EventServiceProvider'
+        'Larabook\Providers\EventServiceProvider',
+        'Larabook\Providers\AccountServiceProvider',
 	),
 
 	/*
