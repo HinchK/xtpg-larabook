@@ -9,13 +9,15 @@
 		"laracasts/validation": "1.2.*",
         "laracasts/flash": "~1.2",
         "laracasts/presenter": "0.1.*",
-		"guzzlehttp/guzzle": "~4.0"
+		"guzzlehttp/guzzle": "~4.0",
+        "atticmedia/anvard": "dev-master"
 	},
     "require-dev": {
         "way/generators": "~2.0",
         "codeception/codeception": "~2.0",
         "laracasts/testdummy": "~1.0",
         "barryvdh/laravel-ide-helper": "v1.11.3",
+        "barryvdh/laravel-debugbar": "1.*",
         "fzaninotto/faker": "1.4.*",
 		"google/apiclient": "1.0.*@beta"
     },

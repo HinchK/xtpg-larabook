@@ -108,4 +108,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->belongsToMany('Larabook\Roles\Role')->withTimestamps();
     }
 
+    public function profiles()
+    {
+        return $this->hasMany('Profile');
+    }
+
 }

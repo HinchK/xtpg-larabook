@@ -129,6 +129,8 @@ return array(
         'Laracasts\Flash\FlashServiceProvider',
         'Larabook\Providers\EventServiceProvider',
         'Larabook\Providers\AccountServiceProvider',
+        'Atticmedia\Anvard\AnvardServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 	),
 
 	/*
@@ -196,7 +198,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
         'Flash'           => 'Laracasts\Flash\Flash',
-
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 	),
 
 );
